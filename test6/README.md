@@ -157,15 +157,11 @@ autoextend on next 50m
 maxsize unlimited;
 
 
-   <br/>                                              ![image-20210614214901459](test6.assets/image-20210614214901459.png)
+​                                             ![image-20210614214901459](test6.assets/image-20210614214901459.png)
 
-   <br/>                                                         ![image-20210614214920526](test6.assets/image-20210614214920526.png)
-
-   <br/>
+​                                                         ![image-20210614214920526](test6.assets/image-20210614214920526.png)
 
 ![image-20210614214941556](test6.assets/image-20210614214941556.png)
-
-   <br/>
 
 ![image-20210614215024169](test6.assets/image-20210614215024169.png)
 
@@ -192,7 +188,11 @@ create table classandgrade (
     cg_note  Varchar2(200)
 )TABLESPACE wt_space1;
 
+
+
 ![image-20210614215218763](test6.assets/image-20210614215218763.png)
+
+
 
 3 创建课程表
 create table course (
@@ -204,7 +204,7 @@ create table course (
     c_credit  number  not null
 )TABLESPACE wt_space1;
 
-​                                                         ![image-20210614215231091](test6.assets/image-20210614215231091.png)
+​    ![image-20210614215231091](test6.assets/image-20210614215231091.png)
 
 4 创建院系表
 create table department (
@@ -252,11 +252,7 @@ alter user wt_user2 quota unlimited on wt_space1;
 
 ![image-20210614215341289](test6.assets/image-20210614215341289.png)
 
-   <br/>
-
 ![image-20210614215354128](test6.assets/image-20210614215354128.png)
-
-   <br/>
 
 ![image-20210614215408854](test6.assets/image-20210614215408854.png)
 
@@ -266,11 +262,20 @@ alter user wt_user2 quota unlimited on wt_space1;
 create role wt_role1;
 grant select any table to wt_role1;
 
+
+
 ![image-20210614215446963](test6.assets/image-20210614215446963.png)
+
+
 
 create role wt_role2;
 grant select any table to wt_role2;
-                                                        ![image-20210614215506090](test6.assets/image-20210614215506090.png)
+
+
+
+![image-20210614215506090](test6.assets/image-20210614215506090.png)
+
+
 
 向学生表中插入50000条数据数据：
 declare
@@ -304,10 +309,18 @@ begin
 
 之前创建了两个用户，一个是wt_user1,一个是wt_user2，并且给wt_user1和wt_user2分别授予了查看表，查看表以及更新表的权限，接下来进行验证：
 让wt_user1连接数据库wtpdb,让其查看wt的student表，如下图所示，是可以看见的。
+
+
+
    ![image-20210614215633602](test6.assets/image-20210614215633602.png)
 
+
+
 让wt_user1对表进行删除操作
+
    ![image-20210614215700222](test6.assets/image-20210614215700222.png)
+
+
 
 显示权限不足，由此可证明，授权无误。
 权限设置成功  
@@ -378,11 +391,18 @@ PROCEDURE getClass(cno VARCHAR2)
 END MyPack;*/
 
 1）函数效果展示
-                                                 ![image-20210614215730190](test6.assets/image-20210614215730190.png)
+
+​                                                 ![image-20210614215730190](test6.assets/image-20210614215730190.png)
+
+
 
 2）存储过程效果展示
 
+
+
 ![image-20210614215747116](test6.assets/image-20210614215747116.png)
+
+
 
 ## 第7章系统定时自动备份
 
@@ -414,25 +434,50 @@ END MyPack;*/
 
 启动linux的crontab定时任务，每天的凌晨一点自动进行备份
 
+
+
 ![image-20210614215824778](test6.assets/image-20210614215824778.png)
 
- 开始演示数据库备份
+ 
+
+开始演示数据库备份
 
 1执行wt.sh脚本，进行数据库备份
 
+
+
 ![image-20210614215846833](test6.assets/image-20210614215846833.png)
 
+
+
 2 破坏数据库，删除表空间文件wt_space1.bdf
-                                                ![image-20210614215900043](test6.assets/image-20210614215900043.png)
+
+​                                                ![image-20210614215900043](test6.assets/image-20210614215900043.png)
+
+
+
+
 
 通过rman进行数据库恢复
+
+
+
+
 
 ![image-20210614220107018](test6.assets/image-20210614220107018.png)
 
 ![image-20210614220130105](test6.assets/image-20210614220130105.png)
 
+
+
 查看恢复后的结果
-                                                  ![image-20210614220008354](test6.assets/image-20210614220008354.png)
+
+
+
+​                                                  ![image-20210614220008354](test6.assets/image-20210614220008354.png)
+
+
+
 
 
 数据库恢复成功
